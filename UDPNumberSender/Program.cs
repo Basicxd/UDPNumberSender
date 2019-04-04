@@ -10,44 +10,32 @@ namespace UDPNumberSender
     {
         static void Main(string[] args)
         {
-            int number = 0;
+            //int number = 0;
 
-            IPAddress ip = IPAddress.Parse("127.0.0.1"); //
-            UdpClient udpClient = new UdpClient();
+            //IPAddress ip = IPAddress.Parse("127.0.0.1"); //
+            //UdpClient udpClient = new UdpClient();
 
-            IPEndPoint RemoteIpEndPoint = new IPEndPoint(ip, 7000); //
-            udpClient.Connect(RemoteIpEndPoint); //
+            //IPEndPoint RemoteIpEndPoint = new IPEndPoint(ip, 7000); //
+            //udpClient.Connect(RemoteIpEndPoint); //
 
-            Console.Write("State name: ");
-            String name = Console.ReadLine();
+            //Console.Write("Hit enter: ");
+            //String name = Console.ReadLine();
 
-            while (true)
-            {
-                Byte[] sendBytes = Encoding.ASCII.GetBytes("The number is: " + number);
-
-                udpClient.Send(sendBytes, sendBytes.Length);
-
-                number++;
-
-                Console.WriteLine(number);
-
-                Thread.Sleep(100);
-            }
-
-            //for (int i = 0; i < 10; i++)
+            //while (true)
             //{
             //    Byte[] sendBytes = Encoding.ASCII.GetBytes("The number is: " + number);
 
-            //    udpClient.Send(sendBytes, sendBytes.Length); //, RemoteEndPoint);
-            //    Byte[] receiveBytes = udpClient.Receive(ref RemoteIpEndPoint);
-            //    //Client is now activated");
+            //    udpClient.Send(sendBytes, sendBytes.Length);
 
-            //    string receivedData = Encoding.ASCII.GetString(receiveBytes);
-            //    Console.WriteLine(receivedData);
             //    number++;
+
+            //    Console.WriteLine(number);
 
             //    Thread.Sleep(100);
             //}
+
+            UDPNumberSenderBroad callingBroad = new UDPNumberSenderBroad();
+            callingBroad.broadMain();
         }
     }
 }
